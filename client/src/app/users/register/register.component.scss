@@ -1,0 +1,49 @@
+@import "../../app.component.scss";
+
+.fullpage {
+  // background: #383a3d;
+  height: 100vh;
+  padding-top: 12vh;
+  background-image: url("../../../assets/img/br.jpg");
+  overflow: hidden;
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(135, 196, 66, 0.7)), url("../../../assets/img/br.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(135, 196, 66, 0.7)), url("../../../assets/img/br.jpg");
+  /* The least supported option. */
+}
+
+form {
+  background: #fff;
+}
+
+.logo {
+  max-height: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lh {
+  color: $main-font-color;
+}
+
+/* set padding and size of th form */
+.form-container {
+  border-radius: 10px;
+  padding: 30px;
+}
+
+label {
+  color: grey;
+  font-weight: 500;
+}
+
+.background {
+  // background-color: $main-font-color;
+  color: $main-font-color;
+}
+
+.btn-background {
+  // background-color: $main-font-color;
+  background-color: $main-font-color;
+  color: $main-bg-color;
+}

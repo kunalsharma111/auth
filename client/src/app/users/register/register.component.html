@@ -1,0 +1,90 @@
+<div class="fullpage">
+  <section class="container-fluid">
+    <section class="row justify-content-center">
+      <section class="col-12 col-sm-6 col-md-4">
+        <form class="form-container" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+          <div class="form-group">
+            <h4 class="text-center font-weight-bold mb-3 lh"> Register </h4>
+            <label for="InputEmail1">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName"
+              [ngClass]="{ 'is-invalid': formSubmitted && f.firstName.errors }"
+              placeholder="First Nname">
+            <div *ngIf="formSubmitted && f.firstName.errors" class="invalid-feedback">
+              <div *ngIf="f.firstName.errors.required">FirstName is required</div>
+              <div *ngIf="f.firstName.errors.minlength">FirstName should be minimum 3 character long</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="InputEmail1">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName"
+              [ngClass]="{ 'is-invalid': formSubmitted && f.lastName.errors }"
+              placeholder="Last Name">
+            <div *ngIf="formSubmitted && f.lastName.errors" class="invalid-feedback">
+              <div *ngIf="f.lastName.errors.required">LastName is required</div>
+              <div *ngIf="f.lastName.errors.minlength">LastName should be minimum 3 character long</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="InputEmail1">Email</label>
+            <input type="email" class="form-control" formControlName="email"
+              [ngClass]="{ 'is-invalid': formSubmitted && f.email.errors }" aria-describeby="emailHelp"
+              placeholder="Email or Username">
+            <div *ngIf="formSubmitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">Enter Valid Email</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="InputPassword1">Password</label>
+            <div class="row">
+              <div class="col-md-11">
+                <input [type]="showPassword ? 'text' : 'password'" class="form-control password-type"
+                  formControlName="password" [ngClass]="{ 'is-invalid': formSubmitted && f.password.errors }"
+                  placeholder="Password" style="border-right :none;">
+              </div>
+              <div class="col-md-1">
+                <button type="button" class="password-type bg-transparent" (click)="togglePassword()" style="float: right; padding : 6px 12px; border: 1px solid #ced4da;
+                        border-left: none; border-radius: 0.25rem; outline:none;">
+                  <i [class]="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            <div *ngIf="formSubmitted && f.password.errors"style="width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;" >
+              <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="InputPassword1">Confirm Password</label>
+            <div class="row">
+              <div class="col-md-11">
+                <input [type]="showPassword ? 'text' : 'password'" class="form-control password-type" formControlName="confirmPassword"
+                  [ngClass]="{ 'is-invalid': formSubmitted && f.confirmPassword.errors }" placeholder="Confirm Password"
+                  style="border-right :none;">
+              </div>
+              <div class="col-md-1">
+                <button type="button" class="password-type bg-transparent" (click)="togglePassword()" style="float: right; padding : 6px 12px; border: 1px solid #ced4da;
+                                  border-left: none; border-radius: 0.25rem; outline:none;">
+                  <i [class]="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            <div *ngIf="formSubmitted && f.confirmPassword.errors" style="width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;" >
+              <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+              <div *ngIf="f.confirmPassword.errors.mustMatch">Password and Confirm Password must match with each other.</div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-custom btn-block btn-background">Submit</button>
+          <div class="form-footer text-center mt-4 background">
+            <p routerLink="/" style="cursor: pointer;">Login</p>
+          </div>
+        </form>
+      </section>
+    </section>
+  </section>
+</div>
